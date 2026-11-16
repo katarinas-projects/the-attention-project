@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5f1e9">
+<meta name="description" content="The Attention Project helps people take back their attention and reconnect with what matters.">
+<title>The Attention Project — Come back to what matters.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --paper:#f6f3ec;--cream:#ebe5d9;--ink:#292d2d;--muted:#6e716d;
+ --blue:#9eafb4;--blue-dark:#526a70;--clay:#9bbdce;--line:#dcd6ca;
+ --white:#fffdf8;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65}
+a{color:inherit;text-decoration:none}button{font:inherit}
+.wrap{width:min(1120px,calc(100% - 48px));margin:auto}
+nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{font-family:var(--serif);font-size:21px;letter-spacing:-.4px}.brand span{color:var(--clay)}
+.navlinks{display:flex;gap:30px;font-size:13px;color:var(--muted)}.navlinks a:hover{color:var(--ink)}
+.menu{display:none}
+.hero{min-height:690px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px;padding:78px 0 90px}
+.eyebrow{text-transform:uppercase;letter-spacing:2.4px;font-size:10px;font-weight:700;color:var(--blue-dark)}
+h1,h2,h3,p{margin-top:0}h1{font:500 clamp(54px,7vw,88px)/1.04 var(--serif);letter-spacing:-2.8px;margin:20px 0 25px;max-width:650px}
+h1 em,h2 em{font-weight:500;color:var(--blue-dark)}
+.hero-copy{font-size:17px;line-height:1.8;color:var(--muted);max-width:470px}
+.actions{display:flex;gap:14px;align-items:center;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:3px;background:var(--blue-dark);color:white;font-size:12px;font-weight:700;letter-spacing:.4px;border:1px solid var(--blue-dark);cursor:pointer;transition:.2s}
+.btn:hover{background:#3f565c;transform:translateY(-2px)}
+.btn.secondary{background:transparent;color:var(--ink);border-color:var(--line)}.btn.secondary:hover{background:var(--white)}
+.hero-art{height:510px;position:relative;overflow:hidden;background:#d9d5c9;border-radius:48% 48% 4px 4px}
+.hero-art img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.72)}
+.art-note{position:absolute;bottom:24px;left:24px;background:rgba(246,243,236,.92);padding:16px 20px;max-width:225px;font:italic 17px/1.4 var(--serif)}
+.section{padding:112px 0;border-top:1px solid var(--line)}
+.section-head{max-width:690px;margin-bottom:54px}.section h2{font:500 clamp(38px,5vw,60px)/1.12 var(--serif);letter-spacing:-1.5px;margin:15px 0 20px}
+.lead{font-size:17px;color:var(--muted);max-width:650px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.info{padding:30px 28px;background:var(--white);border:1px solid var(--line);min-height:220px}
+.info .num{font:italic 18px var(--serif);color:var(--clay)}.info h3{font:500 25px var(--serif);margin:23px 0 10px}.info p{font-size:14px;color:var(--muted);margin:0}
+.quote-band{background:#dce3e1;padding:82px 24px;text-align:center}
+.quote-band blockquote{font:500 clamp(30px,4.5vw,52px)/1.25 var(--serif);max-width:850px;margin:0 auto 20px;letter-spacing:-.8px}
+.quote-band p{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--blue-dark);margin:0}
+.challenge{background:#eee9df}
+.days{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.day{background:var(--white);border:1px solid var(--line);padding:22px 24px;display:grid;grid-template-columns:38px 1fr auto;gap:14px;align-items:start}
+.day-number{font:italic 22px var(--serif);color:var(--clay)}
+.day h3{font:500 20px var(--serif);margin:0 0 5px}.day p{font-size:13px;color:var(--muted);margin:0}
+.day label{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--blue-dark);cursor:pointer;white-space:nowrap}
+.day input{accent-color:var(--blue-dark);width:16px;height:16px}
+.progress-wrap{margin:28px 0 34px;display:flex;align-items:center;gap:16px}
+.progress-track{height:5px;background:#d8d2c7;flex:1;border-radius:5px;overflow:hidden}.progress-fill{height:100%;width:0;background:var(--blue-dark);transition:width .25s}
+.progress-text{font-size:12px;color:var(--muted);min-width:95px;text-align:right}
+.challenge-actions{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:24px}
+.text-button{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:12px}
+.founder{display:grid;grid-template-columns:.85fr 1.15fr;gap:75px;align-items:center}
+.founder-photo{height:440px;background:#d7d4c9;overflow:hidden}
+.founder-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.6)}
+.founder-copy p{color:var(--muted);font-size:15px}
+.signature{font:italic 25px var(--serif);color:var(--clay);margin-top:28px}
+.callout{background:var(--blue-dark);color:#f8f5ee;padding:82px 0;text-align:center}
+.callout h2{font:500 clamp(38px,5vw,58px)/1.1 var(--serif);max-width:700px;margin:0 auto 18px}
+.callout p{color:#d9e0df;max-width:530px;margin:0 auto 28px;font-size:15px}
+.callout .btn{background:#f6f3ec;color:var(--ink);border-color:#f6f3ec}.callout .btn:hover{background:white}
+footer{padding:35px 0;color:var(--muted);font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;border-top:1px solid var(--line);padding-top:25px}
+@media(max-width:760px){
+ .wrap{width:min(100% - 34px,560px)}nav{height:70px}.navlinks{gap:13px;font-size:11px}
+ .hero{grid-template-columns:1fr;padding:65px 0 70px;gap:35px;min-height:auto}h1{font-size:58px}.hero-art{height:380px}
+ .section{padding:78px 0}.three{grid-template-columns:1fr}.days{grid-template-columns:1fr}
+ .founder{grid-template-columns:1fr;gap:35px}.founder-photo{height:360px}
+ .day{grid-template-columns:30px 1fr auto;padding:18px 15px}.day label{font-size:10px}
+ .footer-inner{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:420px){.navlinks{gap:9px;font-size:10px}.brand{font-size:18px}h1{font-size:50px}.hero-art{height:330px}.day{grid-template-columns:25px 1fr}.day label{grid-column:2}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <nav>
+  <a class="brand" href="#top">the attention <span>project.</span></a>
+  <div class="navlinks"><a href="#why">Why it matters</a><a href="#challenge">The challenge</a><a href="#about">Our story</a></div>
+ </nav>
+ <main id="top">
+  <section class="hero">
+   <div>
+    <div class="eyebrow">A reminder to be here</div>
+    <h1>Come back to <em>what matters.</em></h1>
+    <p class="hero-copy">Our attention shapes the way we experience the world. Let's make room for deeper focus, real connection, creativity, and the moments happening right in front of us.</p>
+    <div class="actions"><a class="btn" href="#challenge">TRY THE 7-DAY RESET</a><a class="btn secondary" href="#why">Explore the idea</a></div>
+   </div>
+   <div class="hero-art">
+    <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1200&q=85" alt="Soft morning sunlight falling across a quiet landscape">
+    <div class="art-note">“Where your attention goes, your life follows.”</div>
+   </div>
+  </section>
+</main>
+</div>
+<section class="section" id="why"><div class="wrap">
+ <div class="section-head"><div class="eyebrow">Why attention matters</div><h2>It’s not just about <em>screen time.</em></h2><p class="lead">Technology can be useful, inspiring, and connecting. But when every spare moment gets filled, we can lose the space that helps us think, create, and connect with intention.</p></div>
+ <div class="three">
+  <article class="info"><div class="num">01 / Focus</div><h3>Room to think</h3><p>Constant interruptions can make it harder to stay with one thought. Protecting moments of focus gives ideas room to develop.</p></article>
+  <article class="info"><div class="num">02 / Creativity</div><h3>Room to imagine</h3><p>Boredom isn't always something to fix. Quiet moments can become the starting point for curiosity, reflection, and original ideas.</p></article>
+  <article class="info"><div class="num">03 / Connection</div><h3>Room for people</h3><p>Being present is a way of showing care. Small choices, like putting a phone away during a conversation, can matter.</p></article>
+ </div>
+</div></section>
+<section class="quote-band"><blockquote>“The goal isn’t to reject technology. It’s to remember that our lives are bigger than our screens.”</blockquote><p>The Attention Project</p></section>
+<section class="section challenge" id="challenge"><div class="wrap">
+ <div class="section-head"><div class="eyebrow">Start small · 7 days</div><h2>A week of <em>being here.</em></h2><p class="lead">This isn't a detox or a competition. Try one small experiment each day. Keep what feels meaningful, and leave what doesn't.</p></div>
+ <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-text" id="progressText">0 of 7 complete</div></div>
+ <div class="days" id="days">
+  <article class="day"><div class="day-number">01</div><div><h3>Notice the reach</h3><p>The next time you pick up your phone automatically, pause and ask: what was I looking for?</p></div><label><input type="checkbox" data-day="0"> Done</label></article>
+  <article class="day"><div class="day-number">02</div><div><h3>Leave room for boredom</h3><p>Spend 15 minutes without digital entertainment. Let your mind wander without rushing to fill the silence.</p></div><label><input type="checkbox" data-day="1"> Done</label></article>
+  <article class="day"><div class="day-number">03</div><div><h3>Make before you consume</h3><p>Draw, write, cook, build, or play something before looking for inspiration online.</p></div><label><input type="checkbox" data-day="2"> Done</label></article>
+  <article class="day"><div class="day-number">04</div><div><h3>Give someone your attention</h3><p>Have a conversation or share a meal with your phone out of reach.</p></div><label><input type="checkbox" data-day="3"> Done</label></article>
+  <article class="day"><div class="day-number">05</div><div><h3>Protect your morning</h3><p>Choose a small phone-free window after waking up. Let the day begin with you, not a feed.</p></div><label><input type="checkbox" data-day="4"> Done</label></article>
+  <article class="day"><div class="day-number">06</div><div><h3>Experience it first</h3><p>Do one thing without documenting or posting it. Notice what it feels like to keep a moment for yourself.</p></div><label><input type="checkbox" data-day="5"> Done</label></article>
+  <article class="day"><div class="day-number">07</div><div><h3>Choose what stays</h3><p>Look back at the week. Pick one small change you want to carry into everyday life.</p></div><label><input type="checkbox" data-day="6"> Done</label></article>
+ </div>
+ <div class="challenge-actions"><span style="font-size:12px;color:var(--muted)">Your progress is saved on this device only.</span><button class="text-button" id="reset">Reset my progress</button></div>
+</div></section>
+<section class="section" id="about"><div class="wrap founder">
+ <div class="founder-photo"><img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1000&q=85" alt="A peaceful sunlit room with a journal and plants"></div>
+ <div class="founder-copy"><div class="eyebrow">A note from the founder</div><h2>Why I started <em>asking questions.</em></h2>
+ <p>I'm Katarina, a student interested in the way technology shapes how we think, connect, and spend our time.</p>
+ <p>I started The Attention Project because I kept wondering what happens when the things designed to hold our attention begin to take up the space where our own thoughts, creativity, and relationships could be.</p>
+ <p>This isn't about blaming people for using their phones or pretending technology is all bad. It's about asking better questions, learning from research, and making more intentional choices about where our attention goes.</p>
+ <p>I hope this project gives people a place to start those conversations, experiment with small changes, and remember that being present is something worth practicing.</p>
+ <div class="signature">Katarina</div></div>
+</div></section>
+<section class="callout"><div class="wrap"><div class="eyebrow" style="color:#d3dfdd">A small beginning</div><h2>Your attention is part of your life. Treat it like it matters.</h2><p>You don't have to change everything. Start by noticing one moment, making one choice, and seeing what opens up.</p><a class="btn" href="#challenge">START THE 7-DAY RESET</a></div></section>
+<footer><div class="wrap footer-inner"><a class="brand" href="#top">the attention <span>project.</span></a><span>Take back your attention. Get back to living.</span><span>© <span id="year"></span> The Attention Project</span></div></footer>
+<script>
+const boxes=[...document.querySelectorAll('input[data-day]')];
+const key='attention-project-progress-v2';
+function load(){let saved=[];try{saved=JSON.parse(localStorage.getItem(key)||'[]')}catch(e){};boxes.forEach((b,i)=>b.checked=!!saved[i]);update()}
+function update(){const count=boxes.filter(b=>b.checked).length;document.getElementById('progressFill').style.width=(count/7*100)+'%';document.getElementById('progressText').textContent=count+' of 7 complete';try{localStorage.setItem(key,JSON.stringify(boxes.map(b=>b.checked)))}catch(e){}}
+boxes.forEach(b=>b.addEventListener('change',update));
+document.getElementById('reset').addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);update()});
+document.getElementById('year').textContent=new Date().getFullYear();
+load();
+</script>
+</body>
+</html>
